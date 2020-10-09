@@ -1,0 +1,16 @@
+--- Clase Model 
+
+class Ejemplo {
+
+    var id: String? = null
+    var dni: String? = null
+    var nombre: String? = null
+    var clave: String? = null
+
+    constructor(id: String,dni: String, nombre: String, clave: String) {
+        this.id = id
+        this.dni = dni
+        this.nombre = nombre
+        this.clave = clave
+    }
+}
