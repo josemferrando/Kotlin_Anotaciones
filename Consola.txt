@@ -1,0 +1,2 @@
+---Tag y luego el dato a mostrar
+Log.i("modificada", fechaModificadaBd)
