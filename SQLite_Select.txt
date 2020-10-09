@@ -1,0 +1,12 @@
+---Buscar un registro especifico en una tabla.
+private fun nombreChofer(dni:String):String {
+        lateinit var resultado:String
+        val admin= AdminSQLiteOpenHelper(this,"choferes",null,1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery("select nombre from choferes where dni=${dni}", null)
+        if (fila.moveToFirst()) {
+            resultado = fila.getString(0)
+        }
+        bd.close()
+        return  resultado
+    }
