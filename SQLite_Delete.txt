@@ -1,0 +1,16 @@
+---Eliminar todos los registros en la bd
+private fun borrarCargas(id: String) {
+        val admin = AdminSQLiteOpenHelper(this@Consulta, "carga", null, 1)
+        val bd = admin.writableDatabase
+        val fila = bd.delete("carga", null,null)
+        bd.close()
+    }
+
+
+---Eliminar registro seleccionado.
+private fun borrarCargas(id: String) {
+        val admin = AdminSQLiteOpenHelper(this@Consulta, "carga", null, 1)
+        val bd = admin.writableDatabase
+        val fila = bd.delete("carga", "id=$id",null)
+        bd.close()
+    }

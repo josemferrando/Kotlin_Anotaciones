@@ -1,0 +1,13 @@
+class AdminSQLiteOpenHelper(context: Context, name: String, factory: CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
+
+    override fun onCreate(db: SQLiteDatabase) {
+        db.execSQL("create table carga(id INTEGER PRIMARY KEY AUTOINCREMENT, fecha String,chofer String,tractor String,km Int,litros Double,carga String,surtidor String,equipo String,litrosEquipo Double,enviodb String)")
+        db.execSQL("create table choferes(id INTEGER PRIMARY KEY AUTOINCREMENT,dni String, nombre String,clave String)")
+        db.execSQL("create table tractores(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre String)")
+        db.execSQL("create table equipos(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre String)")
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+
+    }
+}
