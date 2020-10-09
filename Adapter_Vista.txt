@@ -1,0 +1,4 @@
+---Creamos ua variable del tipo Adapter, le pasamos los datos y luego los mostramos.
+
+val adapterVista = Adapter(this,listaDatosCarga)
+            listamostrar.adapter = adapterVista
