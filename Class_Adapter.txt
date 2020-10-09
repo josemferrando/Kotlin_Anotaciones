@@ -1,0 +1,56 @@
+---Adapter ejemplo para class Model
+
+class AdapterChofer (private var activity: Activity, private var items: ArrayList<Ejemplo>): BaseAdapter()
+{
+    private class ViewHolder(row: View?) {
+        var txtTitle: TextView? = null
+        var txtTitle1: TextView? = null
+        var txtTitle2: TextView? = null
+        var txtTitle3: TextView? = null
+
+        init {
+            this.txtTitle = row?.findViewById(R.id.textId)
+            this.txtTitle1 = row?.findViewById(R.id.textDni)
+            this.txtTitle2 = row?.findViewById(R.id.textNombre)
+            this.txtTitle3 = row?.findViewById(R.id.textContraseña)
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        val view: View?
+        val viewHolder: ViewHolder
+        if (convertView == null) {
+            val inflater = activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            view = inflater.inflate(R.layout.item_list_chofer, null)
+            viewHolder =
+                ViewHolder(
+                    view
+                )
+            view?.tag = viewHolder
+        } else {
+            view = convertView
+            viewHolder = view.tag as ViewHolder
+        }
+
+        val chofer = items[position]
+        viewHolder.txtTitle?.text = chofer.id
+        viewHolder.txtTitle1?.text = chofer.dni
+        viewHolder.txtTitle2?.text = chofer.nombre
+        viewHolder.txtTitle3?.text = chofer.clave
+
+        return view as View
+    }
+
+    override fun getItem(i: Int): Chofer {
+        return items[i]
+    }
+
+    override fun getItemId(i: Int): Long {
+        return i.toLong()
+    }
+
+    override fun getCount(): Int {
+        return items.size
+    }
+}
