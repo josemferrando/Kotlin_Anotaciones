@@ -1,0 +1,5 @@
+---Activa o desactiva un componente
+  Lista.isEnabled = true
+ 
+---Revisa si se le hizo un check ("tilde") y devuele un true/false
+checkbox.isChecked
