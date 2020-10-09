@@ -1,0 +1,58 @@
+---Ejemplo de clase que tiene la conexión a una api.PHP
+
+class CargaCombustible : AppCompatActivity() {
+
+    internal lateinit var queue: RequestQueue
+    internal lateinit var progressDialog: ProgressDialog
+    
+    override fun onCreate(savedInstanceState: Bundle?)  {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_carga_combustible)
+
+        queue = Volley.newRequestQueue(this)
+
+        btnEnviar.setOnClickListener {
+            
+                progressDialog = ProgressDialog(this@CargaCombustible)
+                progressDialog.setMessage("Enviando...")
+                progressDialog.setCancelable(false)
+                progressDialog.show()
+
+                var url = urlNuevaCarga
+                val stringRequest = object : StringRequest(
+                    Method.POST,
+                    url, Response.Listener { response ->
+                        try {
+                            progressDialog.cancel()
+                            Toast.makeText(this@CargaCombustible, response, Toast.LENGTH_LONG).show()
+                            if(response!="Carga realizada con exito.")
+                            val i = Intent(this@CargaCombustible, MainActivity::class.java)
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(i)
+                        } catch (e: Exception) {
+                            progressDialog.cancel()
+                            Toast.makeText(this@CargaCombustible, "Problema de envio", Toast.LENGTH_SHORT).show()
+                            e.printStackTrace()
+                        }
+                        }, Response.ErrorListener {
+                            progressDialog.cancel()
+                            Toast.makeText(this@CargaCombustible, "Sin conexión a Internet", Toast.LENGTH_LONG).show()
+                            val i = Intent(this@CargaCombustible, MainActivity::class.java)
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(i)
+                        }) {
+                        @Throws(AuthFailureError::class)
+                        override fun getHeaders(): Map<String, String> {
+                            val params = HashMap<String, String>()
+                            params["PATH"] = "nuevaCarga"
+                            params["CHOFER"] = datosCarga.chofer.toString()
+                            params["TRACTOR"] = datosCarga.tractor.toString()
+                            
+                            return params
+                        }
+                    }
+                    queue.add(stringRequest)
+                }
+        }
+    }
+
