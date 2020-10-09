@@ -1,0 +1,43 @@
+
+---Obtener caractereses de un String y guardarlos en una variable.
+val fechaModificadaBd = fechaDb?.substring(0, 7)
+
+---Aplicar 2 digitos a una variable
+fun Int.twoDigitsDate(): String
+        {
+                if(this <= 9)
+                {
+                        val fmt = Formatter()
+                        //el 0 indica con que rellenamos, el 2 la cantidad de digitos y d  que es un valor int.
+                        fmt.format("%02d", this)
+                        return fmt.toString()
+                }
+                return this.toString()
+        }
+        
+---Agrega un digito en formato string.
+fun Int.twoDigits() =
+                if (this <= 9) "0$this" else this.toString()
+                
+
+
+---Obtener valores numericos de un String
+fun getNumericValues(cadena: String): String {
+
+        val result : MutableList<Int> = mutableListOf<Int>()
+        var numberStr = ""
+        for(i : Int in 0 until cadena.length){
+            val c: Char = cadena[i]
+
+            if(c in '0'..'9'){
+                numberStr += c
+                if(i == cadena.length - 1){
+                    result.add(numberStr.toInt())
+                }
+            }else if(!numberStr.isNullOrBlank()){
+                result.add(numberStr.toInt())
+                numberStr = ""
+            }
+        }
+        return result.joinToString(separator , "")
+    }
