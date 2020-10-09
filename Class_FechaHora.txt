@@ -1,0 +1,32 @@
+class FechaHora {
+
+        //Variables para la fecha y hora actuales.
+        private val separadorFecha = "-"
+        private val separadorDatos = " "
+        private val separadorHora = ":"
+        private val calendarNow: Calendar = GregorianCalendar(TimeZone.getTimeZone("America/Argentina"))
+        private val dia = (calendarNow[Calendar.DAY_OF_MONTH]).twoDigitsDate()
+        //private val mes = (calendarNow[Calendar.MONTH] + 1).twoDigitsDate()
+        private val mes = (8).twoDigitsDate()
+        private val mesModificado = (calendarNow[Calendar.MONTH] -1).twoDigitsDate()
+        private val año = calendarNow[Calendar.YEAR]
+        private val hora = (calendarNow[Calendar.HOUR_OF_DAY]-3).twoDigitsDate()
+        private val minutos = calendarNow[Calendar.MINUTE].twoDigitsDate()
+        private val segundos = calendarNow[Calendar.SECOND].twoDigitsDate()
+
+        //variable que contiene la fecha y hora actual final.
+        val fechaHora = año.toString() + separadorFecha + mes + separadorFecha + dia + separadorDatos +
+               hora + separadorHora + minutos + separadorHora + segundos
+
+        //Aplicar 2 digitos a variables de la fecha y hora.
+        fun Int.twoDigitsDate(): String
+        {
+                if(this <= 9)
+                {
+                        val fmt = Formatter()
+                        fmt.format("%02d", this)
+                        return fmt.toString()
+                }
+                return this.toString()
+        }
+}
