@@ -1,0 +1,129 @@
+---Items a mostrar desde el adapter.
+
+Nombre archivo item_list_ejemplo.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:background="#FAFAFA">
+
+        <RelativeLayout
+            android:id="@+id/rlId"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="id:"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                tools:ignore="HardcodedText,SpUsage" />
+            <TextView
+                android:id="@+id/textId"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="id"
+                android:textSize="16dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                tools:ignore="HardcodedText,SpUsage" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/rlDni"
+            android:id="@+id/rlChofer"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Chofer:"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                tools:ignore="HardcodedText,SpUsage" />
+            <TextView
+                android:id="@+id/textNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="nombre"
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/rlChofer"
+            android:id="@+id/rlContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Contraseña:"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                tools:ignore="HardcodedText,SpUsage" />
+            <TextView
+                android:id="@+id/textContraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="contraseña"
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@id/rlId"
+            android:id="@+id/rlDni"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Dni:"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                tools:ignore="HardcodedText,SpUsage" />
+            <TextView
+                android:id="@+id/textDni"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="dni"
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,SpUsage" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
