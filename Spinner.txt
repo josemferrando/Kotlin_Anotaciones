@@ -1,0 +1,24 @@
+---Crear spinners
+var lista = ArrayList<String>()
+
+
+val adap = ArrayAdapter(this, android.R.layout.simple_spinner_item, lista)
+               Lista.adapter = adap
+
+//Funciones para armar spinners
+    private fun spinner() {
+        val admin= AdminSQLiteOpenHelper(this,"tractores",null,1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery("select nombre from tractores", null)
+
+        if(fila.moveToFirst()) {
+            do {
+                var tractor = fila.getString(0)
+                listaTractoresBd.add(tractor)
+            }while (fila.moveToNext())
+            bd.close()
+        }
+    }
+    
+    
+    
