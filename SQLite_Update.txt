@@ -1,0 +1,12 @@
+---Funcion que actualiza un registro en una tabla.
+Al hacer .put tenemos que pasar el valor de todos los registros de la tabla.
+private fun guardarSQLite(id:String,envioOk:String,datosDb: DatosCarga) {
+        val admin = AdminSQLiteOpenHelper(this@Consulta, "carga", null, 1)
+        val bd = admin.writableDatabase
+        val registro = ContentValues()
+        registro.put("id", datosDb.id.toString())
+        registro.put("fecha", datosDb.fecha.toString())
+        bd.update("carga", registro, "id=$id", null)
+        bd.close()
+        Toast.makeText(this@Consulta,"Se Sincronizo la carga de la fecha " + datosDb.fecha,Toast.LENGTH_SHORT).show()
+    }
