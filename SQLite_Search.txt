@@ -1,0 +1,17 @@
+---Recorrer la tabla un registro a la vez.
+private fun buscarCargas() {
+        val admin= AdminSQLiteOpenHelper(this,"carga",null,1)
+        val bd = admin.writableDatabase
+        val fila = bd.rawQuery("select id,fecha,chofer,tractor,km,litros,carga,surtidor,equipo,litrosEquipo,enviodb from carga", null)
+        if(fila.moveToFirst()) {
+            do {
+                var datosDb = DatosCarga(fila.getString(0), fila.getString(1), fila.getString(2), fila.getString(3), fila.getString(4),
+                    fila.getString(5), fila.getString(6), fila.getString(7), fila.getString(8), fila.getString(9), fila.getString(10))
+                var id = datosDb.id
+                var fechaDb: String? = datosDb.fecha
+                var envioOk: String? = datosDb.envioDb
+
+            }while (fila.moveToNext())
+            bd.close()
+        }
+    }
