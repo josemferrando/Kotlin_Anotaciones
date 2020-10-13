@@ -1,0 +1,10 @@
+---Dentro de Manifest.xml
+
+  android:allowBackup="true"
+        android:icon="@mipmap/icono"
+        android:label=" "
+        android:roundIcon="@mipmap/icono"
+        android:supportsRtl="true"
+        android:theme="@style/CV.NoActionBar"
+        
+   
