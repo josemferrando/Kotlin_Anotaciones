@@ -1,0 +1,12 @@
+---Establece Activity Inicial de una aplicación.
+
+        <activity android:name=".Consulta" />
+        <activity android:name=".CargaCombustible" />
+        <activity android:name=".MainActivity">
+	      <activity android:name=".Login" >---Este es el activity inicial
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+	      </activity>
