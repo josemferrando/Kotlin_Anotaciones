@@ -1,0 +1,34 @@
+--Verificar estado de conexión a Internet en tu aplicación Android
+
+Pedimos permisos para acceder al estado de la conexión. Solicitado (colócalo) en el AndroidManifest.xml.
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+---val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+
+        if (networkInfo != null && networkInfo.isConnected) { // Si hay conexión a Internet en este momento
+            Log.d("MIAPP", " Nombre red Wi-Fi + red " + networkInfo.extraInfo)
+        }
+        else {
+            // No hay conexión a Internet en este momento
+            Log.d("MIAPP", " Nombre red Wi-Fi: " + networkInfo.extraInfo)
+        }
+        
+        
+        
+        
+  --val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+
+        if (networkInfo != null && networkInfo.isConnected) {
+            Log.d("MIAPP", "Estás online")
+            Log.d("MIAPP", " Estado actual: " + networkInfo.state)
+            if (networkInfo.type == ConnectivityManager.TYPE_WIFI) { // Estas conectado a un Wi-Fi
+                Log.d("MIAPP", " Nombre red Wi-Fi: " + networkInfo.extraInfo)
+            }
+        } else {
+            Log.d("MIAPP", "Estás offline")
+        }
