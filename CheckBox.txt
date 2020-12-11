@@ -6,4 +6,12 @@
                 android:gravity="center" />
                 
                 
----
+---Drawable check de tamaño ampliado
+<CheckBox
+                android:id="@+id/checkboxEquipo"
+                android:layout_marginLeft="15dp"
+                android:onClick="onCheckboxClicked"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:button="@null"
+                android:background="?android:attr/listChoiceIndicatorMultiple"/>
