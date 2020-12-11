@@ -1,0 +1,24 @@
+---Layout que permite orientar los componentes internos(Vert/Horiz), dependiendo de la configuración del LinearLayout.
+
+<LinearLayout
+        android:id="@+id/lnbuttons"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5">    
+        </RelativeLayout>    
+        <RelativeLayout
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5">
+         </RelativeLayout
+</LinearLayout>
