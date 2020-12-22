@@ -1,0 +1,3 @@
+---Actualizar el listview luego de modificar algo
+
+adapter.notifyDataSetChanged()
