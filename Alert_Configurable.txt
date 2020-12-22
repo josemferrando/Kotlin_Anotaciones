@@ -1,0 +1,44 @@
+---Ventana de alerta configurable para realizar acciones o recibir información
+
+ val alert: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
+                alert.setTitle("Eliminar la novedad ")
+                alert.setMessage(listNueva[id.toInt()].novedad + " -> " + "\n" + listNueva[id.toInt()].observacion)
+                alert.setPositiveButton("Si"
+                ) { dialog, whichButton ->
+                    listNueva.removeAt(id.toInt())
+                    adapter.notifyDataSetChanged()
+                    Toast.makeText(this, "Novedad Eliminada!!", Toast.LENGTH_LONG).show()
+                }
+                alert.setNegativeButton("No"
+                ) { dialog, whichButton ->
+
+                     }
+                alert.show()
+                
+                
+ ---Recibe datos
+ 
+ val alert: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
+                    alert.setTitle(novelty)
+                    alert.setMessage("Ingrese las obervaciones o comentarios")
+                    // Set an EditText view to get user input
+                    val input = EditText(this)
+                    alert.setView(input)
+
+                    alert.setPositiveButton("Ok"
+                    ) { dialog, whichButton ->
+                        // Do something with value!
+                        addItem(input.text.toString())
+                        contadorId++
+
+                        var objeto = Modelo(contadorId,noveltysection, novelty, input.text.toString())
+                        cargarNovedades(objeto)
+                    }
+                    alert.setNegativeButton("Cancel"
+                    ) { dialog, whichButton ->
+                        // Canceled.
+                        removeItem(novelty)
+                        Toast.makeText(applicationContext,
+                            "Se quito de la selección: " + noveltysection + " -> " + novelty,
+                            Toast.LENGTH_LONG).show() }
+                    alert.show()
